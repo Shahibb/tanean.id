@@ -9,10 +9,13 @@ class ArticleSeeder extends Seeder
 {
     public function run()
     {
+        $user = User::first(); // ambil admin
+
         Article::create([
+            'user_id' => $user->id,
             'title' => 'Laravel 11 Dirilis dengan Fitur Baru',
             'excerpt' => 'Framework Laravel merilis versi terbaru dengan berbagai peningkatan performa.',
-            'content' => 'Laravel 11 telah dirilis dengan berbagai fitur baru yang memudahkan developer dalam membangun aplikasi web. Beberapa fitur utama termasuk peningkatan performa, struktur yang lebih sederhana, dan integrasi yang lebih baik dengan ekosistem PHP modern.',
+            'content' => 'Laravel 11 telah dirilis dengan berbagai fitur baru...',
             'category' => 'teknologi',
             'author' => 'Admin',
             'is_published' => true,
@@ -20,9 +23,10 @@ class ArticleSeeder extends Seeder
         ]);
 
         Article::create([
+            'user_id' => $user->id,
             'title' => 'Tim Nasional Indonesia Lolos ke Piala Dunia',
             'excerpt' => 'Keberhasilan gemilang tim nasional sepak bola Indonesia.',
-            'content' => 'Dalam pertandingan yang penuh dramatis, Tim Nasional Indonesia berhasil mengalahkan lawannya dengan skor 2-1 dan lolos ke Piala Dunia untuk pertama kalinya dalam sejarah.',
+            'content' => 'Dalam pertandingan yang penuh dramatis...',
             'category' => 'warta',
             'author' => 'Admin',
             'is_published' => true,
