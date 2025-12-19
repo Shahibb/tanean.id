@@ -113,11 +113,10 @@ class Article extends Model
 
         static::creating(function ($article) {
             if (empty($article->slug)) {
-                $article->slug = $this->generateUniqueSlug($article->title);
+                $article->slug = self::generateUniqueSlugStatic($article->title);
             }
         });
 
-        // Auto-generate excerpt if empty
         static::saving(function ($article) {
             if (empty($article->excerpt)) {
                 $article->excerpt = Str::limit(strip_tags($article->content), 150);
@@ -125,7 +124,8 @@ class Article extends Model
         });
     }
 
-    private function generateUniqueSlug($title)
+
+    private static function generateUniqueSlugStatic($title)
     {
         $slug = Str::slug($title);
         $count = 1;
