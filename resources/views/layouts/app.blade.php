@@ -74,8 +74,8 @@
                         class="hidden md:inline-flex items-center px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wide text-white bg-tanean-beige hover:bg-tanean-dark hover:border-tanean-dark border border-transparent transition">
                         Kirimkan Ceritamu
                     </a>
-                    <a href="#"
-                        class="hidden md:inline-flex items-center px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wide border-2 border-tanean-beige text-tanean-beige hover:bg-tanean-dark hover:text-white transition">
+                    <a href="{{ route('login') }}"
+                        class="hidden md:inline-flex items-center px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wide border-2 border-tanean-beige text-tanean-beige hover:bg-tanean-dark hover:text-white transition" target="_blank">
                         Masuk
                     </a>
                 </div>

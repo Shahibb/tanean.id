@@ -15,7 +15,7 @@ Route::get('/search', [ArticleController::class, 'search'])->name('search');
 
 Route::get('/home', function () {
     return redirect()->route('dashboard');
-})->name('home');
+})->name('home.redirect');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
@@ -40,9 +40,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
