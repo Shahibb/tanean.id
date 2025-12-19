@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+
+            // USER PEMBUAT ARTIKEL
+            $table->foreignId('user_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('excerpt');
