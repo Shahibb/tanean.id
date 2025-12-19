@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>TANEAN.id - Homepage Berita dan Media</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&amp;family=Playfair+Display:wght@400;700;900&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#57534e", // Stone 600 - Earthy tone
+                        "primary-dark": "#292524", // Stone 800
+                        "accent": "#a8a29e", // Stone 400
+                        "background-light": "#ffffff",
+                        "background-dark": "#1c1917", // Stone 900
+                        "surface-light": "#f5f5f4", // Stone 100
+                        "surface-dark": "#292524", // Stone 800
+                        "footer-light": "#d6d3d1", // Stone 300 (approx beige)
+                        "footer-dark": "#44403c", // Stone 700
+                    },
+                    fontFamily: {
+                        display: ["'Playfair Display'", "serif"],
+                        body: ["'Roboto'", "sans-serif"],
+                        serif: ["'Merriweather'", "serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0px", // The design is quite sharp/boxy
+                        'sm': '2px',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .font-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-stone-800 dark:text-stone-200 font-body transition-colors duration-300">
+    <header class="border-b border-stone-200 dark:border-stone-700 bg-background-light dark:bg-background-dark">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <button
+                    class="flex flex-col items-center group text-stone-600 dark:text-stone-300 hover:text-primary transition">
+                    <span class="material-icons text-3xl">menu</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest mt-1">Menu</span>
+                </button>
+                <button
+                    class="flex flex-col items-center group text-stone-600 dark:text-stone-300 hover:text-primary transition">
+                    <span class="material-icons text-3xl">search</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest mt-1">Cari</span>
+                </button>
+            </div>
+            <div class="flex-1 text-center">
+                <a class="font-logo text-5xl md:text-6xl text-stone-500 dark:text-stone-200 tracking-tighter uppercase"
+                    href="#">
+                    Tanean<span class="text-stone-400 dark:text-stone-500">.id</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-3">
+                <a class="px-4 py-1.5 bg-stone-400 text-white text-xs font-bold uppercase rounded-full hover:bg-stone-500 transition"
+                    href="#">
+                    Kirimkan Ceritamu
+                </a>
+                <a class="px-4 py-1.5 bg-stone-400 text-white text-xs font-bold uppercase rounded-full hover:bg-stone-500 transition"
+                    href="#">
+                    Masuk
+                </a>
+            </div>
+        </div>
+        <nav class="border-t border-stone-200 dark:border-stone-700 py-3">
+            <ul
+                class="flex justify-center space-x-8 md:space-x-16 text-xs font-bold uppercase tracking-widest text-stone-800 dark:text-stone-300">
+                <li><a class="hover:text-primary transition decoration-2 underline-offset-4 hover:underline"
+                        href="#">Warta</a></li>
+                <li><a class="hover:text-primary transition decoration-2 underline-offset-4 hover:underline"
+                        href="#">Warita</a></li>
+                <li><a class="hover:text-primary transition decoration-2 underline-offset-4 hover:underline"
+                        href="#">Swara</a></li>
+                <li><a class="hover:text-primary transition decoration-2 underline-offset-4 hover:underline"
+                        href="#">Lensa</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="w-full h-[400px] md:h-[500px] relative overflow-hidden">
+        <img alt="Pemandangan industri saat senja dengan cerobong asap dan lampu pabrik"
+            class="w-full h-full object-cover object-center"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEAUFPOZtfFHwE2gZp0zu_5_8K4AJ_XjG8dn2J6rBZzTFfsRSkJOPoMsDxf8VjNoyq0J119l8OAQdgF0IGL8O3SPdVofVS3kiumvPHL9_c1sQKvPU_B3U3HyNyCHElifCACYRnbJtGOR0krDJLPoyDtd_S2YHRF4eaEzJldAPFpXY-RWcLeE2Up8nuSQ-yz2RXg7nHMqdzH3-DEESxpyHQMd66YVF7iHtb9aN1vXc5A3JEXm_ARNn3M7yb7TkY4ypl4rvLhVAC3g" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+    </section>
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-8 space-y-12">
+                <div class="flex items-center mb-8">
+                    <div class="h-8 w-1.5 bg-stone-500 mr-3"></div>
+                    <h2 class="font-serif text-3xl font-bold text-stone-800 dark:text-stone-100">Warta</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                    <article class="flex flex-col h-full">
+                        <div class="aspect-[4/3] overflow-hidden bg-stone-200 dark:bg-stone-800 mb-4">
+                            <img alt="Hutan lebat dengan pencahayaan dramatis"
+                                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHxS_3z2P1SxNZwRxs-Ed4vfKL33kgGHO61P4BuTlmedWgnsOXX4aFe7dl2QziewY-A8T4gZ5Aded3eLN4Ps2R43QYXTgipXECB34my5r7j8BBD6afO5UoEITTFfVmo-wfzYDtd118VlEXdQXpGPfEWD642PjdirOox5ziZ7jonjbzgsyVLTAoO1CvduSyDyOpSggms3Y50zWlxgrDMlvC5Cx6XhiV8LfgP0MJ1MFq71XRbcLiLPpvyhv7Tdd0dN7k-L3AF9WWrA" />
+                        </div>
+                        <h3 class="font-serif text-xl font-bold leading-snug mb-2 hover:text-primary cursor-pointer">
+                            Ngopi pagi merupakan rutinitas mahasiswa putus asa
+                        </h3>
+                        <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-3">Rajulur rasyid</p>
+                        <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-4">
+                            Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                            tekanan terhadap ruang hidup akibat ekspansi industri ekstraktif, kelompok perempuan muda
+                            adat membangun gerakan literasi. Gerakan membaca, menulis...
+                        </p>
+                    </article>
+                    <article class="flex flex-col h-full">
+                        <div class="aspect-[4/3] overflow-hidden bg-stone-200 dark:bg-stone-800 mb-4">
+                            <img alt="Pohon besar di hutan hujan tropis"
+                                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpvzHJGfudj-w6iO6mSme9L6ZnmUvbB14viD5Bp1XYhopr6zL41IGJfjfosY23G2_KIYHI_jb9URlDtAVfG9d2RNbQXPo-kvnPDSCuKC6V-aaDBT-apBUaUuemWwzA-Y_FH3H9YxvM4mdliIhiH9J4jnD7D7L2VHuRkUR-uo29xy9sqKgy3bgf0qSDBjDcecg9L7LCh8FT7K0cZNuHIrdZ02rqBJnRXBbIOCJQ9wsONxBchTaolc8eM8L9ZRsLSHIj9k40r2_y7A" />
+                        </div>
+                        <h3 class="font-serif text-xl font-bold leading-snug mb-2 hover:text-primary cursor-pointer">
+                            Hutan adat tersisa di tengah kepungan industri tambang
+                        </h3>
+                        <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-3">Rajulur rasyid</p>
+                        <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-4">
+                            Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                            tekanan terhadap ruang hidup akibat ekspansi industri ekstraktif, kelompok perempuan muda
+                            adat membangun gerakan literasi. Gerakan membaca, menulis...
+                        </p>
+                    </article>
+                    <article class="flex flex-col h-full">
+                        <div class="aspect-[4/3] overflow-hidden bg-stone-200 dark:bg-stone-800 mb-4">
+                            <img alt="Pemandangan danau dan gunung yang indah"
+                                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhlHHs-TQMPQILCE1NKLq_pXfYKeNgGWYgkGxDywlYKzK66LoadaYV4RmMlaFeC0PypCW_dLKFmRvwOhVDvqeNkZodB0UgysbocLVSJmthgsmcthJWkhVekd1-mX5mq2RM3SYy_ahl7bmecSOFISDXGQby_KUd0c-oLyvOEXJJtEsFMSV7dXEcY5x7GEswflQUj8lmj8nKSAcwvuw7i8sLdlZSPPtNXl7afjcy_l3qCJF4XbWWgIMlYnfXobO5KneMCzl82RRJtg" />
+                        </div>
+                        <h3 class="font-serif text-xl font-bold leading-snug mb-2 hover:text-primary cursor-pointer">
+                            Masa depan anak-anak di pedalaman Kalimantan
+                        </h3>
+                        <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-3">Rajulur rasyid</p>
+                        <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-4">
+                            Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                            tekanan terhadap ruang hidup akibat ekspansi industri ekstraktif, kelompok perempuan muda
+                            adat membangun gerakan literasi. Gerakan membaca, menulis...
+                        </p>
+                    </article>
+                    <article class="flex flex-col h-full">
+                        <div class="aspect-[4/3] overflow-hidden bg-stone-200 dark:bg-stone-800 mb-4">
+                            <img alt="Hutan berkabut di pagi hari"
+                                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-VZDIG76ldEHLuoRP1NfMVWsL1tXWFlB6zDP3PTleeQqYiFgWbfayDj1BZxp2yanrbH_uvLmYzj1-nBTvtLDa1x_utSwCaZctmNdIZHE-t1CxMr0pT_K5nVy_NJRAnSHpf8_ptvDTWWkA7IiIh3BLijtqwdCYJTuE6RdrbeH8j0Dw8t7ycHMa3A91DjEJqCL6bEV_ML5wpHaI-QdMVaQeiaZxJHuzDbRK0wiUYFKQwfHqvJuR0q6JcKzt-MMEOcV1SUEpbR0ljA" />
+                        </div>
+                        <h3 class="font-serif text-xl font-bold leading-snug mb-2 hover:text-primary cursor-pointer">
+                            Perempuan adat melawan dengan tenun dan cerita
+                        </h3>
+                        <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-3">Rajulur rasyid</p>
+                        <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-4">
+                            Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                            tekanan terhadap ruang hidup akibat ekspansi industri ekstraktif, kelompok perempuan muda
+                            adat membangun gerakan literasi. Gerakan membaca, menulis...
+                        </p>
+                    </article>
+                </div>
+            </div>
+            <div class="lg:col-span-4">
+                <div class="sticky top-8">
+                    <div class="flex items-center mb-8">
+                        <div class="h-8 w-1.5 bg-stone-500 mr-3"></div>
+                        <h2 class="font-serif text-3xl font-bold text-stone-800 dark:text-stone-100 italic">Swara</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <a class="block bg-[#d4d4ce] dark:bg-[#4a4a44] p-6 hover:opacity-90 transition group min-h-[160px]"
+                            href="#">
+                            <div
+                                class="h-full flex flex-col justify-center items-center text-center opacity-50 group-hover:opacity-100 transition">
+                                <span
+                                    class="material-icons text-4xl mb-2 text-stone-600 dark:text-stone-300">format_quote</span>
+                                <p class="font-serif font-bold text-stone-700 dark:text-stone-200">Opini: Ruang Hidup
+                                </p>
+                            </div>
+                        </a>
+                        <a class="block bg-[#e5e5e0] dark:bg-[#575752] p-6 hover:opacity-90 transition group min-h-[160px]"
+                            href="#">
+                            <div
+                                class="h-full flex flex-col justify-center items-center text-center opacity-50 group-hover:opacity-100 transition">
+                                <span class="material-icons text-4xl mb-2 text-stone-600 dark:text-stone-300">mic</span>
+                                <p class="font-serif font-bold text-stone-700 dark:text-stone-200">Podcast: Suara
+                                    Meratus</p>
+                            </div>
+                        </a>
+                        <a class="block bg-[#c8d4be] dark:bg-[#3d4a36] p-6 hover:opacity-90 transition group min-h-[160px]"
+                            href="#">
+                            <div
+                                class="h-full flex flex-col justify-center items-center text-center opacity-50 group-hover:opacity-100 transition">
+                                <span
+                                    class="material-icons text-4xl mb-2 text-stone-600 dark:text-stone-300">edit_note</span>
+                                <p class="font-serif font-bold text-stone-700 dark:text-stone-200">Esai: Literasi
+                                    Digital</p>
+                            </div>
+                        </a>
+                        <a class="block bg-[#e5e0d6] dark:bg-[#524d45] p-6 hover:opacity-90 transition group min-h-[160px]"
+                            href="#">
+                            <div
+                                class="h-full flex flex-col justify-center items-center text-center opacity-50 group-hover:opacity-100 transition">
+                                <span
+                                    class="material-icons text-4xl mb-2 text-stone-600 dark:text-stone-300">campaign</span>
+                                <p class="font-serif font-bold text-stone-700 dark:text-stone-200">Seruan Aksi</p>
+                            </div>
+                        </a>
+                        <a class="block bg-[#c8d4be] dark:bg-[#3d4a36] p-6 hover:opacity-90 transition group min-h-[160px]"
+                            href="#">
+                            <div
+                                class="h-full flex flex-col justify-center items-center text-center opacity-50 group-hover:opacity-100 transition">
+                                <span
+                                    class="material-icons text-4xl mb-2 text-stone-600 dark:text-stone-300">history_edu</span>
+                                <p class="font-serif font-bold text-stone-700 dark:text-stone-200">Sejarah Lokal</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="bg-[#dcdcdc] dark:bg-stone-800 py-12 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-8">
+                <div class="h-8 w-1.5 bg-stone-500 mr-3"></div>
+                <h2 class="font-serif text-3xl font-bold text-stone-800 dark:text-stone-100">Lensa</h2>
+            </div>
+            <div class="relative">
+                <button
+                    class="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-10 p-2 text-stone-800 dark:text-stone-200 hover:text-primary transition">
+                    <span class="material-icons text-5xl">chevron_left</span>
+                </button>
+                <button
+                    class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-10 p-2 text-stone-800 dark:text-stone-200 hover:text-primary transition">
+                    <span class="material-icons text-5xl">chevron_right</span>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-background-light dark:bg-stone-900 shadow-sm group cursor-pointer h-full">
+                        <div class="aspect-video bg-stone-200 dark:bg-stone-700 overflow-hidden">
+                            <img alt="Sekelompok orang berdiskusi"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf6XncQLEJ8hPPNajNLwzuEgOlBQavuU6nA-CGcopy6Xlgnl0odjCXa6RJZxC2igNIJyIAdH8Vi559syAJU3vYKdc8pN8Udb8dgfcuH5-Lvvs1PBKSoPwSJET81hfcun6aLaHL3DKcyh6U6X80MgeM8-P4VMRCiCsODykCNS8YDsiZvhSyYCXe8mn2LIMqz9Dsqm744lHHmBvxvx3pnAXSVraDrJCk2vT3vAbkzoZ7MBX8Cr830P6GryFKN8lfGJRHGYVqdmeXpA" />
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="font-serif text-lg font-bold leading-tight mb-2 group-hover:text-primary transition">
+                                Ngopi pagi merupakan rutinitas mahasiswa putus asa
+                            </h3>
+                            <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-2">Rajulur rasyid</p>
+                            <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-3">
+                                Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                                tekanan...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-background-light dark:bg-stone-900 shadow-sm group cursor-pointer h-full">
+                        <div class="aspect-video bg-stone-200 dark:bg-stone-700 overflow-hidden">
+                            <img alt="Pemandangan senja di desa"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzpNGs6hxMiNRnekQn7EVGCv1s74gvp9Ayj_bGUAzBYteN1aHIkGvLJseTIcuw57soyaujE_O7Azbe50zirsaY-joMKnxZD4ayiFa4b769x5J-DOyB2bskZaNQEz-lQ259ZzfHWdhQ5EFuNiUCkUQAuol83HqtcSPr7W4SwnEe5XmRAA1thFs72S7irpPmnqx4cRqGxrRN9SfgJ3wjF0qa6-CKGCoAoMcfPTs46boXxymYOb82Q9KumMPKGTwZYnbsSkLX5jS5lQ" />
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="font-serif text-lg font-bold leading-tight mb-2 group-hover:text-primary transition">
+                                Kehidupan malam di pedalaman yang sunyi
+                            </h3>
+                            <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-2">Rajulur rasyid</p>
+                            <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-3">
+                                Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                                tekanan...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-background-light dark:bg-stone-900 shadow-sm group cursor-pointer h-full">
+                        <div class="aspect-video bg-stone-200 dark:bg-stone-700 overflow-hidden">
+                            <img alt="Potret lansia lokal"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkEhFiBX1TOj_bYXvATHlJmjXwQ6WLD26MKru1vFWKUrUbAE8X4HRtNSsxB1_P_4Q3UsPOv8-pefLhShrZ-1oA5GsW6bo2fXkLtFac3h0f9yOxjqxccsiaAmaAfuo8h3GRp3xIoTD1tBYVhC37XEgrCrB3hgq6m8veUktoFlcoadRprmoMA3GG0VMbbnXY6h9WSRx9pvH_AjNmhBRAoVIvKARXq7TjtkoiDf6HbhuKfubGCvHfLsbOwBYOwYTTDcM2F5UOVfyA7Q" />
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="font-serif text-lg font-bold leading-tight mb-2 group-hover:text-primary transition">
+                                Potret kearifan lokal yang mulai memudar
+                            </h3>
+                            <p class="text-xs text-stone-500 dark:text-stone-400 italic mb-2">Rajulur rasyid</p>
+                            <p class="text-sm text-stone-600 dark:text-stone-300 line-clamp-3">
+                                Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya
+                                tekanan...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-background-light dark:bg-background-dark py-12 border-t border-stone-200 dark:border-stone-700">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-8">
+                <div class="h-8 w-1.5 bg-stone-500 mr-3"></div>
+                <h2 class="font-serif text-3xl font-bold text-stone-800 dark:text-stone-100">Lensa</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div
+                    class="aspect-video bg-stone-200 dark:bg-stone-800 relative group cursor-pointer flex items-center justify-center">
+                    <img alt="Cover video dokumenter"
+                        class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLxjd2xim-1jqRmBvnqZpDI7C-Xgp_kO9FeTgIITZcDKgePBIlk_OHZlED9qJWA23rZhEOse5T3_Jyo682ae3D86CH17HGSBzbBrCakdz33Wsgu_3lnk0LogkWasAkZTKTXUdrJndZ1UosF8VizJHOC-KnvoaPCVTcuVya6UBRa1Sz_IdQQn6H8dSfd-CooYGW8GJaR6uOWu0c9R_FhjTPtaYbqwzpdRwyBORZlaX7pYNGphg3a4fz145XCPKBXYI3adUNtDyS4A" />
+                    <div
+                        class="relative z-10 w-20 h-20 rounded-full border-4 border-white flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition duration-300">
+                        <span class="material-icons text-5xl text-white ml-2">play_arrow</span>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h2
+                        class="font-serif text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4 leading-tight">
+                        Ngopi pagi merupakan rutinitas mahasiswa putus asa
+                    </h2>
+                    <p class="text-sm text-stone-500 dark:text-stone-400 italic mb-6 text-lg">Rajulur rasyid</p>
+                    <p class="text-stone-700 dark:text-stone-300 text-lg leading-relaxed">
+                        Di tengah akses pendidikan yang timpang di kawasan Pegunungan Meratus dan meningkatnya tekanan
+                        terhadap ruang hidup akibat ekspansi industri ekstraktif, kelompok perempuan muda adat membangun
+                        gerakan literasi.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="aspect-video bg-stone-200 dark:bg-stone-800 relative group cursor-pointer flex items-center justify-center">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWS7ujM50BfGkTA1IvjvK7PKipOhNvLdJIv56AMlt5ucCwleYvgyaZg6mXr4q0wudEZTWhEclUh_do8d10oxm2ier-AotvPockg6CWC6KqyX_RU3GPfFv4TE6P2M7Ef-Zs0xfi7V9aHwC-i3ROIEcedMIJlTwzp-a1905zfeP_426P6F90eG8y1TB7Oh3YM8Dgjp3dPZomUOvED1828z6K2X2FoDbUg4ofL2ucQfsz7yFcg-chGxfshz2xvlFYwXuCVj9viNEvew" />
+                    <div
+                        class="relative z-10 w-12 h-12 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition">
+                        <span class="material-icons text-3xl text-white ml-1">play_arrow</span>
+                    </div>
+                </div>
+                <div
+                    class="aspect-video bg-stone-200 dark:bg-stone-800 relative group cursor-pointer flex items-center justify-center">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw1kwW-AAc_LU6AsDZOEeFD69A96hYSqNgOh3SKEHD8lUR50so9DW_tM3OEai283xdHWiqLbcr-v4uP8hTKBwwdURmI9mSkhzPaPYBJAYc_p3_3vpk7a-AcjF9Hd2QudTkrcePzbwoXNOzmFj0Rc-pUEYjOn3wj1F1K7DBx_-tE5v3XqNW-aqQwPk6NGxr-nb074NzQJ1aqIXnOJwBuJKIpHYwV5hZS1ZrqJ-qvu95FbDADRj2uokKgbPgCBmFOIM16vSSVcoXNw" />
+                    <div
+                        class="relative z-10 w-12 h-12 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition">
+                        <span class="material-icons text-3xl text-white ml-1">play_arrow</span>
+                    </div>
+                </div>
+                <div
+                    class="aspect-video bg-stone-200 dark:bg-stone-800 relative group cursor-pointer flex items-center justify-center">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtlxBK1jo6SCyJiKoXjlcaO0yGPU4Fqgs9jdW2RUdP85WWipOk8eSJbuEih1mbUL83q3DV2ug7YWIuO2TBHmh7RuWV3x4jCNE0Z__7Ul3OoS_Z5LmURIW0_nq4BgTXuAvUL10br4KDt0Knyuj-lQHAjlfvwzW4cRAK_snhUGWJZFdskqEc7nBLQ_LQJfKMwcePHMwACDtFe6WYZnNYK3qEklKi6uOS20tHS8JrzORZ0J9JsBQdZRufiUrfK3PjBdVAiUxtBVn-2A" />
+                    <div
+                        class="relative z-10 w-12 h-12 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition">
+                        <span class="material-icons text-3xl text-white ml-1">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-footer-light dark:bg-footer-dark text-stone-800 dark:text-stone-200 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-6">
+                    <div
+                        class="w-full h-32 bg-stone-200 dark:bg-stone-600 flex items-center justify-center text-stone-400 dark:text-stone-300">
+                        <span
+                            class="font-logo text-2xl uppercase tracking-widest text-stone-500 dark:text-stone-400">Logo</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a class="p-2 bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900 rounded-full hover:bg-stone-700 dark:hover:bg-white transition flex items-center justify-center w-10 h-10"
+                            href="#">
+                            <span class="font-bold text-lg">f</span>
+                        </a>
+                        <a class="p-2 bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900 rounded-full hover:bg-stone-700 dark:hover:bg-white transition flex items-center justify-center w-10 h-10"
+                            href="#">
+                            <span class="font-bold text-lg">ig</span>
+                        </a>
+                        <a class="p-2 bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900 rounded-full hover:bg-stone-700 dark:hover:bg-white transition flex items-center justify-center w-10 h-10"
+                            href="#">
+                            <span class="font-bold text-lg">X</span>
+                        </a>
+                        <a class="p-2 bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900 rounded-full hover:bg-stone-700 dark:hover:bg-white transition flex items-center justify-center w-10 h-10"
+                            href="#">
+                            <span class="material-icons text-lg">play_arrow</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-6">Kunjungi</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a class="hover:underline" href="#">Panduan Publikasi</a></li>
+                        <li><a class="hover:underline" href="#">Panduan Menjadi Kontributor</a></li>
+                        <li><a class="hover:underline" href="#">Panduan Meliput</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-6">Rubrik</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a class="hover:underline" href="#">Warta</a></li>
+                        <li><a class="hover:underline" href="#">Warita</a></li>
+                        <li><a class="hover:underline" href="#">Swara</a></li>
+                        <li><a class="hover:underline" href="#">Lensa</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-6">Info</h3>
+                    <ul class="space-y-3 text-sm mb-8">
+                        <li><a class="hover:underline" href="#">Tentang Kami</a></li>
+                        <li><a class="hover:underline" href="#">Pedoman Media</a></li>
+                        <li><a class="hover:underline" href="#">Pedoman Media Siber</a></li>
+                        <li><a class="hover:underline" href="#">Kontak Kami</a></li>
+                    </ul>
+                    <div class="space-y-3">
+                        <button
+                            class="w-full bg-stone-800 text-white py-2 px-4 font-bold uppercase text-xs tracking-wider hover:bg-stone-700 transition dark:bg-stone-900 dark:hover:bg-black shadow-md">
+                            Kirimkan Ceritamu
+                        </button>
+                        <button
+                            class="w-full bg-black text-white py-2 px-4 font-bold uppercase text-xs tracking-wider hover:bg-stone-800 transition shadow-md">
+                            Langganan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-stone-400 dark:border-stone-600 pt-8 text-center text-xs text-stone-600 dark:text-stone-400">
+                © 2023 TANEAN.id. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
