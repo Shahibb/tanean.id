@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Article;
+use App\Models\User;      // ✅ INI YANG BENAR
+use App\Models\Article;   // ✅
 use Illuminate\Database\Seeder;
 
 class ArticleSeeder extends Seeder
