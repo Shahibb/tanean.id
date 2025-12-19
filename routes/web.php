@@ -12,11 +12,6 @@ Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('article
 Route::get('/kategori/{category}', [ArticleController::class, 'category'])->name('article.category');
 Route::get('/search', [ArticleController::class, 'search'])->name('search');
 
-
-Route::get('/home', function () {
-    return redirect()->route('dashboard');
-})->name('home.redirect');
-
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
     // Dashboard - accessible to any authenticated user; sidebar adapts by role
