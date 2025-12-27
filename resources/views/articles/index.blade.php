@@ -5,7 +5,7 @@
 @section('content')
     <!-- Hero Section -->
     @if (!request('q') && $featuredArticle)
-        <section class="relative h-[420px] sm:h-[480px] md:h-[520px] overflow-hidden">
+        <section class="relative h-[420px] sm:h-[480px] md:h-[520px] overflow-hidden mt-6">
 
             @if ($featuredArticle->image)
                 <img src="{{ asset('storage/' . $featuredArticle->image) }}" alt="{{ $featuredArticle->title }}"
@@ -52,30 +52,32 @@
     @endif
 
     <section class="container mx-auto px-8 py-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
-            {{-- KIRI --}}
-            <div class="lg:col-span-8 space-y-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div class="md:col-span-8 space-y-10">
 
                 {{-- WARTA --}}
                 <section>
-                    <h2 class="text-2xl md:text-3xl font-bold text-tanean-dark mb-6 border-l-8 border-tanean-beige pl-3"><a href="{{ route('article.category', 'warta') }}"
-                            class="hover:text-tanean-beige">Warta</a></h2>
+                    <h2
+                        class="text-2xl md:text-3xl font-display font-medium-weight text-tanean-dark mb-6 border-l-8 border-tanean-beige pl-3">
+                        <a href="{{ route('article.category', 'warta') }}" class="hover:text-tanean-beige">Warta</a>
+                    </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         @foreach ($wartaArticles as $article)
-                            <x-article-card :title="$article->title" :image="asset('storage/' . $article->image)" :excerpt="Str::limit($article->excerpt, 120)" :author="$article->author"
-                                :date="$article->published_at->format('d M Y')" :link="route('article.show', $article->slug)" />
+                            <x-article-card variant="lead" :title="$article->title" :image="asset('storage/' . $article->image)" :excerpt="Str::limit($article->excerpt, 300)"
+                                :author="$article->author" :date="$article->published_at->format('d M Y')" :link="route('article.show', $article->slug)" />
                         @endforeach
                     </div>
                 </section>
 
                 {{-- WARITA --}}
                 <section>
-                    <h2 class="text-2xl md:text-3xl font-bold text-tanean-dark mb-6 border-l-8 border-tanean-beige pl-3"><a href="{{ route('article.category', 'warita') }}"
-                            class="hover:text-tanean-beige">Warita</a></h2>
+                    <h2
+                        class="text-2xl md:text-3xl font-display font-medium-weight text-tanean-dark mb-6 border-l-8 border-tanean-green pl-3">
+                        <a href="{{ route('article.category', 'warita') }}" class="hover:text-tanean-beige">Warita</a>
+                    </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         @foreach ($waritaArticles as $article)
-                            <x-article-card :title="$article->title" :image="asset('storage/' . $article->image)" :excerpt="Str::limit($article->excerpt, 120)" :author="$article->author"
+                            <x-article-card :title="$article->title" :image="asset('storage/' . $article->image)" :excerpt="Str::limit($article->excerpt, 320)" :author="$article->author"
                                 :date="$article->published_at->format('d M Y')" :link="route('article.show', $article->slug)" />
                         @endforeach
 
@@ -84,16 +86,18 @@
 
             </div>
 
-            {{-- KANAN --}}
-            <aside class="lg:col-span-4 border-l-2 border-tanean-beige pl-8">
+            {{-- Swara --}}
+            <aside class="md:col-span-4 md:border-l md:border-tanean-beige md:pl-8">
                 <div class="sticky top-32 space-y-6">
-                    <h2 class="text-2xl md:text-3xl font-bold text-tanean-dark mb-6 border-l-8 border-tanean-beige pl-3"><a href="{{ route('article.category', 'swara') }}"
+                    <h2 class="text-2xl md:text-[32px] font-display font-medium-weight text-tanean-dark mb-6 border-l-8 md:border-tanean-beige pl-3"
+                        style="font-style: italic;"><a href="{{ route('article.category', 'swara') }}"
                             class="hover:text-tanean-beige">Swara</a></h2>
 
                     @foreach ($swaraArticles as $article)
-                        <x-article-card variant="compact" :title="Str::limit($article->title, 60)" :image="asset('storage/' . $article->image)" :link="route('article.show', $article->slug)"
-                            :date="$article->published_at->format('d M Y')" />
+                        <x-article-card variant="compact" :title="$article->title" :image="asset('storage/' . $article->image)" :author="$article->author"
+                            :excerpt="Str::limit($article->excerpt, 120)" :link="route('article.show', $article->slug)" :date="$article->published_at->format('d M Y')" />
                     @endforeach
+
 
                 </div>
             </aside>
@@ -101,45 +105,14 @@
         </div>
     </section>
     {{-- LENSA --}}
-    <section class="bg-[#C9C4B7] py-8">
-        <div class="container mx-auto px-8 relative">
-            {{-- JUDUL --}}
-            <h2 class="text-2xl md:text-3xl font-bold text-tanean-dark mb-6 border-l-8 border-tanean-beige pl-3"><a href="{{ route('article.category', 'lensa') }}"
-                    class="hover:text-tanean-beige">Lensa</a></h2>
+    <div class="mb-4">
+        @include('articles.category.partials.slider', [
+            'articles' => $lensaArticles,
+            'bgColor' => 'bg-tanean-beige',
+            'title' => 'Lensa',
+            'route' => 'lensa',
+        ])
+    </div>
+    @include('articles.category.video')
 
-            {{-- WRAPPER SLIDER --}}
-            <div class="relative">
-
-                {{-- PANAH KIRI --}}
-                <button
-                    class="absolute -left-6 top-1/3 z-10 bg-white/80 backdrop-blur
-           text-black w-10 h-10 rounded-full flex items-center justify-center
-           hover:bg-white transition shadow">
-                    ‹
-                </button>
-
-
-                {{-- PANAH KANAN --}}
-                <button
-                    class="absolute -right-6 top-1/3 z-10 bg-white/80 backdrop-blur
-           text-black w-10 h-10 rounded-full flex items-center justify-center
-           hover:bg-white transition shadow">
-                    ›
-                </button>
-
-                {{-- GRID LENSA --}}
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    @foreach ($lensaArticles as $article)
-                        <x-article-card :title="$article->title" :image="asset('storage/' . $article->image)" :excerpt="Str::limit($article->excerpt, 120)" :author="$article->author"
-                            :date="$article->published_at->format('d M Y')" :link="route('article.show', $article->slug)" />
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- <!-- Pagination -->
-    <div class="container mx-auto px-6 py-8">
-        {{ $articles->links() }}
-    </div> --}}
 @endsection

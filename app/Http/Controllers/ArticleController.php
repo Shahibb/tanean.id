@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Video; // Pastikan Model Video di-import
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -14,7 +15,7 @@ class ArticleController extends Controller
         // ===== SEARCH QUERY =====
         $search = $request->q;
 
-        // ===== FEATURED =====
+        // ===== FEATURED ARTICLE =====
         $featuredArticle = null;
 
         if (!$search) {
@@ -22,7 +23,6 @@ class ArticleController extends Controller
                 ->latest('published_at')
                 ->first();
         }
-
 
         // ===== MAIN ARTICLES =====
         $articles = Article::published()
@@ -38,35 +38,41 @@ class ArticleController extends Controller
             ->withQueryString();
 
 
-        // ===== KATEGORI (non-search) =====
+        // Inisialisasi variabel video agar tidak error jika masuk mode search
+        $mainVideo = null;
+        $otherVideos = collect();
+
+        // ===== KATEGORI & VIDEO (non-search) =====
         if (!$search) {
-            $wartaArticles = Article::published()
-                ->where('category', 'warta')
-                ->latest('published_at')
-                ->take(4)
-                ->get();
+            // 1. Ambil Artikel per Kategori
+            $wartaArticles = Article::published()->where('category', 'warta')->latest('published_at')->take(2)->get();
+            $waritaArticles = Article::published()->where('category', 'warita')->latest('published_at')->take(2)->get();
+            $swaraArticles = Article::published()->where('category', 'swara')->latest('published_at')->get();
+            $lensaArticles = Article::published()->where('category', 'lensa')->latest('published_at')->get();
 
-            $waritaArticles = Article::published()
-                ->where('category', 'warita')
-                ->latest('published_at')
-                ->take(4)
-                ->get();
+            // 2. LOGIKA BARU: AMBIL DATA VIDEO UNTUK HOMEPAGE
+            // Cari video yang featured = true
+            $mainVideo = Video::where('featured', true)->latest()->first();
 
-            $swaraArticles = Article::published()
-                ->where('category', 'swara')
-                ->latest('published_at')
-                ->take(4)
-                ->get();
-            $lensaArticles = Article::published()
-                ->where('category', 'lensa')
-                ->latest('published_at')
-                ->take(3)
-                ->get();
+            // Fallback: Jika tidak ada yg featured, ambil video terakhir yg diupload
+            if (!$mainVideo) {
+                $mainVideo = Video::latest()->first();
+            }
+
+            // Ambil video lainnya (kecuali video utama)
+            $otherVideos = collect(); // Default kosong
+            if ($mainVideo) {
+                $otherVideos = Video::where('id', '!=', $mainVideo->id) // Jangan ambil video yang sudah jadi main
+                    ->latest()
+                    ->take(3)
+                    ->get();
+            }
         } else {
+            // Jika sedang search, kosongkan section kategori
             $wartaArticles = $waritaArticles = $swaraArticles = $lensaArticles = collect();
         }
 
-
+        // Jangan lupa masukkan 'mainVideo' dan 'otherVideos' ke compact
         return view('articles.index', compact(
             'featuredArticle',
             'articles',
@@ -74,7 +80,9 @@ class ArticleController extends Controller
             'waritaArticles',
             'swaraArticles',
             'lensaArticles',
-            'search'
+            'search',
+            'mainVideo',   // <--- PENTING
+            'otherVideos'  // <--- PENTING
         ));
     }
 
@@ -96,11 +104,56 @@ class ArticleController extends Controller
 
     public function category($category)
     {
+        // Ambil 2 artikel pertama untuk ditampilkan di bagian atas
+        $topArticles = Article::published()
+            ->where('category', $category)
+            ->latest('published_at')
+            ->take(2)
+            ->get();
+
+        // Ambil semua artikel untuk slider
+        $allArticles = Article::published()
+            ->where('category', $category)
+            ->latest('published_at')
+            ->get();
+
+        // Ambil artikel swara
+        $swaraArticles = collect();
+        if ($category === 'warta') {
+            $swaraArticles = Article::published()
+                ->where('category', 'swara')
+                ->latest('published_at')
+                ->take(10)
+                ->get();
+        }
+
+        // Paginasi
         $articles = Article::published()
             ->where('category', $category)
             ->latest('published_at')
             ->paginate(9);
 
-        return view('articles.category', compact('articles', 'category'));
+        // Logika Video (Khusus halaman kategori /kategori/video)
+        $mainVideo = null;
+        $otherVideos = collect();
+
+        // Perbaikan: Selalu ambil video jika kategorinya 'video', bukan null default
+        if ($category === 'video') {
+            $mainVideo = Video::where('featured', true)->latest()->first();
+
+            if (!$mainVideo) {
+                $mainVideo = Video::latest()->first();
+            }
+
+            if ($mainVideo) {
+                $otherVideos = Video::where('featured', false)
+                    ->where('id', '!=', $mainVideo->id)
+                    ->latest()
+                    ->take(3)
+                    ->get();
+            }
+        }
+
+        return view('articles.category', compact('articles', 'category', 'topArticles', 'allArticles', 'swaraArticles', 'mainVideo', 'otherVideos'));
     }
 }

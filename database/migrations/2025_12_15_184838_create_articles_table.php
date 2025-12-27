@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('url')->nullable()->unique();
 
             // USER PEMBUAT ARTIKEL
             $table->foreignId('user_id')

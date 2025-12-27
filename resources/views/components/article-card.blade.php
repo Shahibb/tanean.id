@@ -6,38 +6,47 @@
     'author' => 'Unknown',
     'date' => null,
     'link' => '#',
-    'variant' => 'default', // default | lead | compact
+    'variant' => 'default', // default | lead | compact | slider
 ])
 @php
     $imageHeight = match ($variant) {
-        'lead' => 'h-72 md:h-80',
+        'lead' => 'h-72 md:h-[275px]',
+        'kategori' => 'h-72 md:h-[300px]',
         'compact' => 'h-24',
+        'slider' => 'h-32',
+        'lensa' => 'h-[100vh]',
         default => 'h-48',
     };
 
     $titleClass = match ($variant) {
-        'lead' => 'text-2xl md:text-3xl font-bold',
-        'compact' => 'text-sm font-semibold leading-snug',
-        default => 'text-xl font-bold',
+        'lead' => 'text-h2-custom font-medium-weight font-display',
+        'compact' => 'text-h2-custom font-medium-weight font-display leading-snug',
+        'slider' => 'text-h2-custom font-medium-weight font-display',
+        default => 'text-h2-custom font-medium-weight font-display',
     };
-@endphp
 
+@endphp
 
 <article
     {{ $attributes->merge([
-        'class' => 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition',
+        'class' => collect([
+            'overflow-hidden transition',
+            $variant === 'slider' ? 'w-[320px]  flex-shrink-0 max-w-none' : '',
+        ])->implode(' '),
     ]) }}>
+
     @if ($image)
         <div class="w-full {{ $imageHeight }} overflow-hidden">
-            <img src="{{ $image }}" alt="{{ $title }}"
-                class="w-full h-full object-cover hover:scale-105 transition duration-300">
+            <a href="{{ $link }}"><img src="{{ $image }}" alt="{{ $title }}"
+                    class="w-full h-full object-cover hover:scale-105 transition duration-300">
+            </a>
         </div>
     @endif
 
 
-    <div class="p-5">
+    <div class="py-4">
         @if ($category)
-            <span class="text-xs font-semibold uppercase mb-2 inline-block">
+            <span class="text-xs font-medium uppercase mb-2 inline-block">
                 {{ $category }}
             </span>
         @endif
@@ -47,16 +56,14 @@
                 {{ $title }}
             </a>
         </h2>
+        <div class="flex justify-between items-center text-author-custom mb-2">
+            <span>{{ $author }}</span>
+            {{-- <span>{{ $date }}</span> --}}
+        </div>
         @if ($excerpt && $variant !== 'compact')
-            <p class="text-gray-600 text-sm mb-3 leading-relaxed">
+            <p class="text-excerpt-custom">
                 {{ $excerpt }}
             </p>
         @endif
-
-        <div class="flex justify-between items-center text-xs text-gray-500">
-            <span>{{ $author }}</span>
-            <span>{{ $date }}</span>
-        </div>
-
     </div>
 </article>
